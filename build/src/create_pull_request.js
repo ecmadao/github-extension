@@ -7,7 +7,6 @@ function initialExtension() {
 
 function resetClickAction($recentBranches) {
   $recentBranches.find('.RecentBranches-item').each(function(index, item) {
-    console.log(index);
     var $a = $(item).find('a');
     var href = $a.attr('href');
     var hrefSplits = href.split('/');
