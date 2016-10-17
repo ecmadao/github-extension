@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "github code review extension",
   "short_name": "review-helper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A chrome extension for better github code review.",
   "permissions": [
     "tabs"
@@ -12,6 +12,10 @@
     "48": "icons/github_48.png",
     "64": "icons/github_64.png",
     "128": "icons/github_128.png"
+  },
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": false
   },
   "content_scripts": [
     {
