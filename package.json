@@ -1,0 +1,23 @@
+{
+  "name": "github-extension",
+  "version": "0.0.1",
+  "description": "A chrome extension for better github code review.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "chrome-extension"
+  ],
+  "author": "ecmadao",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecmadao/github-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ecmadao/github-extension/issues"
+  },
+  "homepage": "https://github.com/ecmadao/github-extension#readme",
+  "license": "MIT"
+}
