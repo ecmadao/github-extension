@@ -16,6 +16,7 @@
   opacity: 1;
   visibility: visible;
   left: -155px;
+  z-index: 1;
 }
 
 /* action button */
@@ -38,6 +39,7 @@
 .github_scroll_top {
   width: 50px;
   height: 50px;
+  z-index: 9;
 }
 
 .code_review_tab {
@@ -46,6 +48,12 @@
   display: block;
   margin: 5px;
   float: left;
+  color: #424242;
+}
+
+.code_review_tab:hover {
+  background-color: #616161;
+  color: #fff;
 }
 
 /* scroll to top icon */
@@ -92,6 +100,7 @@
 /* topbar icons */
 .code_review_tab_wrapper {
   position: absolute;
+  z-index: -1;
   opacity: 0;
   visibility: hidden;
   height: 50px;
@@ -105,4 +114,5 @@
 .code_review_tab_wrapper.active {
   opacity: 1;
   visibility: visible;
+  z-index: 1;
 }

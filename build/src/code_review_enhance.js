@@ -45,6 +45,9 @@ function topBarButtonTemplate() {
 
 function getTopbarButton(){
   var $topbar = $('.tabnav-pr').find('.tabnav-tabs');
+  if (!$topbar || !$topbar.length) {
+    return "";
+  }
   var tabs = [];
   $topbar.find('.tabnav-tab').each(function(index, tab) {
     var href = $(tab).attr('href');
