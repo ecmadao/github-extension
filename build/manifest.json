@@ -13,6 +13,10 @@
     "64": "icons/github_64.png",
     "128": "icons/github_128.png"
   },
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches" : ["https://github.com/*", "https://github.com/*/*"],
