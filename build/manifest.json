@@ -13,10 +13,6 @@
     "64": "icons/github_64.png",
     "128": "icons/github_128.png"
   },
-  "background": {
-    "scripts": ["src/jquery-3.1.1.min.js"],
-    "persistent": true
-  },
   "content_scripts": [
     {
       "matches" : ["https://github.com/*", "https://github.com/*/*"],
