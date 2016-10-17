@@ -1,5 +1,11 @@
 function initialExtension() {
   var $recentBranches = $('.RecentBranches');
+  if ($recentBranches.length) {
+    resetClickAction($recentBranches);
+  }
+}
+
+function resetClickAction($recentBranches) {
   $recentBranches.find('.RecentBranches-item').find('a').on('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
