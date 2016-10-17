@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "github code review extension",
   "short_name": "review-helper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A chrome extension for better github code review.",
   "permissions": [
     "tabs"
