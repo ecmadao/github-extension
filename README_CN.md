@@ -42,10 +42,23 @@
 
 其实吧，我上面的那些都仅仅是"治标不治本"而已。因为对一个正确、健康的开发流程而言，本身就不提倡太长的`code review` -- 有那么多改变的代码要看，难以保障 review 质量。而对于插件"改变 pull request 比较的分支"这个功能，本身 github 的`git flow`所提倡的就是：使用`master`分支作为`base`分支，开发分支应该基于`master`分支创建。不过因为自己习惯的原因（公司开发流程的`git flow`和`gitlab work flow`），才会去创建这个 chrome 插件，也希望能帮助到大家吧。
 
-### author
+## 本地玩起来
+
+- 克隆这个仓库
+- 打开 chrome，进入 [chrome://extensions](chrome://extensions/) 页面
+- 打开 “开发者模式”
+- 点击 "加载未封装的扩展程序"，然后加载你刚刚下载的文件夹内的 "build" 文件夹
+
+## ToDo
+
+- [ ] 在各仓库的主页面展现和它类似的开源仓库
+- [ ] code review 页面的 action button 展现当前的页面
+- 更多功能还在思考中。。
+
+## author
 
 [ecmadao](https://github.com/ecmadao)
 
-### License
+## License
 
 MIT

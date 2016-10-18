@@ -30,19 +30,31 @@ Imagine you are assigned to a pull request. So let's have a code review.
 
 It is a really really long review, man, and you have no choice but hold on. It seems after hundred of centuries, you scroll to the end of the page! In the end, you have only one task to do -- scroll to the top, click "conversation" button in the navbar, then leave your conversation or merge this request.
 
+![navbar](./readme/navbar.png)
+
 With this chrome extension, you'll have a action button on this page at bottom right corner. By using that, you can quickly scroll to top, locate to "conversation" page or "commits" page or "files change" page😝.
 
 ![action button](./readme/action_button.png)
 
 they have same func with navbar.
 
-![navbar](./readme/navbar.png)
+## Playground
 
-### Author
+- clone this repository
+- locate your chrome to [chrome://extensions](chrome://extensions/)
+- open "developer mode"
+- click "load unpacked", then load "build" folder in this repository
+
+## ToDo
+
+- [ ] show similar repositories in a repository main page
+- [ ] show current page in action button when code review
+
+## Author
 
 [ecmadao](https://github.com/ecmadao)
 
-### License
+## License
 
 MIT
 
