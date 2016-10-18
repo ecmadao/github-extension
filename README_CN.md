@@ -14,7 +14,7 @@
 
 ![create pull request-before](./readme/create_pull_request_before.png)
 
-酷😝。但如果你并不想合并到`master`分支呢？假设我们从`master`创建了一个`staging`分支，它被用于测试环境。而日常的开发和测试都是在基于`staging`所创建的分支 -- 即`master`作为生产环境的分支🤔。
+酷😝。但如果你并不想合并到`master`分支呢？假设我们从`master`创建了一个`staging`分支，它被用于测试环境。而日常的开发和测试都是在基于`staging`所创建的分支，而`master`作为生产环境的分支🤔。
 
 既然我们的分支基于`staging`创建，那它或许和`master`有很大的差别。既然如此，如果点击"Compare & pull request"之后直接和`master`毕竟的话，那简直太糟糕了 -- 你的页面可能会卡死、耗费很长很长的时间来加载资源🙄。而且只有在加载完资源之后才可以切换`base`分支，然后再比较一次😞。
 
