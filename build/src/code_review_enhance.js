@@ -49,7 +49,7 @@ function getTopbarButton(){
     return "";
   }
   var tabs = [];
-  $topbar.find('.tabnav-tab').each(function(index, tab) {
+  $topbar.find('a.tabnav-tab').each(function(index, tab) {
     var href = $(tab).attr('href');
     var svg = $(tab).find('svg')[0].outerHTML;
     tabs.push({
@@ -65,13 +65,21 @@ function getTopbarButton(){
 }
 
 function topBarTemplate(tabObj) {
-  return "<a href='" + tabObj.href + "' class='git_action_button code_review_tab'>" +
+  var actionButtonClass = activePage(tabObj.href) ? 'git_action_button code_review_tab active' : 'git_action_button code_review_tab';
+  return "<a href='" + tabObj.href + "' class='" + actionButtonClass + "'>" +
   "<div class='code_review_icon'>" + tabObj.svg + "</div>" +
-  "<a>";
+  "</a>";
 }
 
 function matchUrl(url) {
   return url.match(/\/pull\//) || url.match(/\/compare\//);
+}
+
+function activePage(url) {
+  var href = window.location.href;
+  var re = new RegExp(url + "$");
+  var result = re.exec(href);
+  return result && result.length === 1;
 }
 
 function initial() {

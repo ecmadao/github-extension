@@ -51,6 +51,7 @@
   color: #424242;
 }
 
+.code_review_tab.active,
 .code_review_tab:hover {
   background-color: #616161;
   color: #fff;
