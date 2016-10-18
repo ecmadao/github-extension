@@ -52,7 +52,7 @@
 ## ToDo
 
 - [ ] 在各仓库的主页面展现和它类似的开源仓库
-- [ ] code review 页面的 action button 展现当前的页面
+- [x] code review 页面的 action button 展现当前的页面
 - 更多功能还在思考中。。
 
 ## author

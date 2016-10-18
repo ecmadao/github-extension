@@ -48,7 +48,7 @@ they have same func with navbar.
 ## ToDo
 
 - [ ] show similar repositories in a repository main page
-- [ ] show current page in action button when code review
+- [x] show current page in action button when code review
 
 ## Author
 
