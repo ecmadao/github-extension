@@ -18,6 +18,10 @@ function resetClickAction($recentBranches) {
   });
 }
 
-setTimeout(function() {
-  initialExtension();
-}, 1500);
+const initial = () => {
+  setTimeout(function() {
+    initialExtension();
+  }, 1500);
+};
+
+export default initial;

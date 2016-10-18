@@ -14,14 +14,15 @@
     "128": "icons/github_128.png"
   },
   "background": {
-    "scripts": ["src/background.js"],
+    "scripts": ["src/background.bundle.js"],
     "persistent": false
   },
   "content_scripts": [
     {
       "matches" : ["https://github.com/*", "https://github.com/*/*"],
-      "js": ["src/jquery-3.1.1.min.js", "src/create_pull_request.js", "src/code_review_enhance.js"],
-      "css": ["src/code_review_enhance.css"]
+      "js": ["src/content_script.bundle.js"],
+      "css": ["src/content_script.bundle.css"]
     }
-  ]
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

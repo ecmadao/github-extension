@@ -1,13 +1,7 @@
-function matchUrl(url) {
-  return url.match(/\/pull\//) || url.match(/\/compare\//);
-}
-
-function activePage(url) {
-  var href = window.location.href;
-  var re = new RegExp(url + "$");
-  var result = re.exec(href);
-  return result && result.length === 1;
-}
+import {
+  matchUrl,
+  activePage
+} from './utils';
 
 var ActionButton = function() {};
 ActionButton.prototype = {
@@ -93,5 +87,4 @@ ActionButton.prototype = {
   }
 };
 
-const actionButton = new ActionButton();
-actionButton.initial();
+export default ActionButton;
