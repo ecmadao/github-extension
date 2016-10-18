@@ -8,7 +8,7 @@
 
 当你给某个 github 仓库 push 了一个新分支之后，应该会在该仓库的首页看见下面这种页面：
 
-![创建pull request](./readme/create_pull_request_before.png)
+![创建pull request](./readme/create_pull_request.png)
 
 然后点击"Compare & pull request"，就会跳转到创建`pull request`的页面，并且你刚 push 的这个分支会直接和`master`分支比较。
 
