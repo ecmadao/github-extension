@@ -38,6 +38,14 @@ With this chrome extension, you'll have a action button on this page at bottom r
 
 they have same func with navbar.
 
+### show similar repos
+
+It's not so accurate at this time, just for fun😆.
+
+It will search and get six most stared repos by repository name and language.
+
+![similar repos](./readme/similar_repos.png)
+
 ## Playground
 
 - clone this repository
@@ -47,7 +55,7 @@ they have same func with navbar.
 
 ## ToDo
 
-- [ ] show similar repositories in a repository main page
+- [x] show similar repositories in a repository main page
 - [x] show current page in action button when code review
 
 ## Author

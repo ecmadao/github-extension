@@ -18,10 +18,10 @@ function resetClickAction($recentBranches) {
   });
 }
 
-const initial = () => {
+const initialPullRequest = () => {
   setTimeout(function() {
     initialExtension();
   }, 1500);
 };
 
-export default initial;
+export default initialPullRequest;

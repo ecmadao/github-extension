@@ -29,7 +29,6 @@ class RecommendRepo {
       return fetchSearchResult(name, language);
     }).then((items) => {
       const repos = items.slice(0, 6);
-      console.log(repos);
       this._addRecommendRepos(repos);
     });
   }
