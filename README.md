@@ -2,6 +2,8 @@
 
 > A chrome extension for better github experience.
 
+[中文版介绍](./README_CN.md)
+
 ## Feature
 
 ### Create a pull request
