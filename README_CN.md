@@ -16,7 +16,7 @@
 
 酷😝。但如果你并不想合并到`master`分支呢？假设我们从`master`创建了一个`staging`分支，它被用于测试环境。而日常的开发和测试都是在基于`staging`所创建的分支，而`master`作为生产环境的分支🤔。
 
-既然我们的分支基于`staging`创建，那它或许和`master`有很大的差别。既然如此，如果点击"Compare & pull request"之后直接和`master`毕竟的话，那简直太糟糕了 -- 你的页面可能会卡死、耗费很长很长的时间来加载资源🙄。而且只有在加载完资源之后才可以切换`base`分支，然后再比较一次😞。
+既然我们的分支基于`staging`创建，那它或许和`master`有很大的差别。如果这样的话，在我们点击"Compare & pull request"之后，它会直接和`master`分支进行比较的话 -- 那简直太糟糕了 -- 你的页面可能会卡死、耗费很长很长的时间来加载资源🙄，而且只有在加载完资源之后才可以切换`base`分支，然后再比较一次😞。
 
 而利用这个插件，我会偷偷改变你要比较的分支。当你点击"Compare & pull request"按钮之后，会跳转到一个仅仅和自身比较的页面，那样的话几乎可以在瞬间完成页面加载。
 
@@ -26,17 +26,17 @@
 
 ### 关于`code review`的用户体验
 
-假设你被指定参与一个`code review`，而那个`code review`又碰巧很长。直接`merge`了呗？别开玩笑了，那怎么可能。
+假设你被指定参与一个`code review`，而那个`code review`又碰巧很长。直接`merge`了呗？开玩笑，那怎么可能。
 
 所以当你认认真真的看完了`pull request file compare`，想要发表点评论，或者合并分支的时候，不得不再将页面滚动到最顶部，点击`navbar`上的按钮。
 
-这个差距可以为这一步提供一点便利。针对`pull request`页面，它会生成一个位于页面右下角的`action button`浮动按钮，并提供"回到顶部"、"链接到 conversation 页面"、"链接到 commits 页面"、"链接到 files 页面"几个功能😝。
+![navbar](./readme/navbar.png)
 
-![action button](./readme/action_button.png)
+这个插件可以为这一步提供一点便利。针对`pull request`页面，它会生成一个位于页面右下角的`action button`浮动按钮，并提供"回到顶部"、"链接到 conversation 页面"、"链接到 commits 页面"、"链接到 files 页面"几个功能😝。
 
 那几个按钮和`navbar`的作用一毛一样：
 
-![navbar](./readme/navbar.png)
+![action button](./readme/action_button.png)
 
 --------------------------------------------------------------------------------
 
