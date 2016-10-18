@@ -4,7 +4,10 @@
   "description": "A chrome extension for better github code review.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "export NODE_ENV=production && npm run build_pro",
+    "build_pro": "./node_modules/webpack/bin/webpack.js --config config/webpack.pro.js -p",
+    "build_dev": "./node_modules/webpack/bin/webpack.js --config config/webpack.config.js"
   },
   "keywords": [
     "github",
@@ -19,5 +22,29 @@
     "url": "https://github.com/ecmadao/github-extension/issues"
   },
   "homepage": "https://github.com/ecmadao/github-extension#readme",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-core": "^6.14.0",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.14.0",
+    "babel-runtime": "^6.11.6",
+    "style-loader": "^0.13.1",
+    "clean-webpack-plugin": "^0.1.10",
+    "css-loader": "^0.23.1",
+    "es6-promise": "^3.2.1",
+    "exports-loader": "^0.6.3",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
 }
