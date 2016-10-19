@@ -7,40 +7,45 @@ import {
 class ActionButton {
   constructor() {
     this.url = originalURL();
-    this.canInitial = matchUrl(this.url);
+    this.canInitialReviewButton = matchUrl(this.url);
+    this.actionButton = null;
+    this.reviewButtons = null;
   }
 
   initial() {
-    if (this.canInitial) {
-      this._addScrollButton();
-      this._listenWindowScroll();
-    }
+    this._addScrollButton();
+    this._listenWindowScroll();
     return this;
   }
 
   listenUrlChange() {
-    if (this.canInitial) {
-      var observer = new window.WebKitMutationObserver((mutations) => {
-        if (originalURL() !== this.url) {
-          this.url = originalURL();
-          this._handleUrlChange();
-        }
+    var observer = new window.WebKitMutationObserver((mutations) => {
+      const currentUrl = originalURL();
+      const matchReviewUrl = matchUrl(currentUrl);
+      if (matchReviewUrl && !this.reviewButtons && !this.canInitialReviewButton) {
+        this.canInitialReviewButton = matchReviewUrl;
+        this._initialReviewButton();
+      } else if (currentUrl !== this.url && matchReviewUrl) {
+        this.url = currentUrl;
+        this._handleUrlChange();
+      }
+    });
+    try {
+      observer.observe($('#js-repo-pjax-container')[0], {
+        subtree: true,
+        characterData: true,
+        childList: true
       });
-      try {
-        observer.observe($('#js-repo-pjax-container')[0], {
-          subtree: true,
-          characterData: true,
-          childList: true
-        });
-      } catch (e) {}
-    }
+    } catch (e) {}
   }
 
   _addScrollButton() {
-    const scrollButton = $(this._actionButtonTemplate());
-    this.topBarButtons = scrollButton.find('.code_review_tab');
-    $('body').append(scrollButton);
+    this.actionButton = $(this._actionButtonTemplate());
+    $('body').append(this.actionButton);
     this._bindButtonAction();
+    if (this.canInitialReviewButton) {
+      this._initialReviewButton();
+    }
   }
 
   _bindButtonAction() {
@@ -53,7 +58,7 @@ class ActionButton {
   }
 
   _handleUrlChange() {
-    this.topBarButtons.each((i, button) => {
+    this.reviewButtons.each((i, button) => {
       const href = $(button).attr('href');
       if (activePage(href)) {
         $(button).addClass('active').siblings().removeClass('active');
@@ -74,10 +79,15 @@ class ActionButton {
     });
   }
 
+  _initialReviewButton() {
+    const $reviewButtonTemplate = $(this.topBarButtonTemplate);
+    this.reviewButtons = $reviewButtonTemplate.find('.code_review_tab');
+    this.actionButton.append($reviewButtonTemplate);
+  }
+
   _actionButtonTemplate() {
     return "<div class='git_action_button_wrapper'>" +
     this.scrollButtonTemplate +
-    this.topBarButtonTemplate +
     "</div>";
   }
 
