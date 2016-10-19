@@ -1,28 +1,41 @@
 .repo_wrapper {
   width: 100%;
   margin: 15px 0 25px 0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
 .repo_wrapper .repo_wrapper_title {
   padding-left: 1.7%;
   font-size: 16px;
-  margin-bottom: 10px;
+  height: 35px;
+  line-height: 35px;
+  border-bottom: 1px solid #ddd;
 }
 
 .repo_wrapper .repo_container {
   display: inline-block;
-  width: 30%;
+  width: 33%;
+  border-right: 0.5px solid #f0f0f0;
   border-radius: 2px;
   transition: all 400ms;
   -webkit-transition: all 400ms;
-  margin: 5px 1.6%;
-  border: 1px solid #f0f0f0;
   background-color: #fff;
 }
 
+.repo_wrapper .repo_container:nth-child(2),
+.repo_wrapper .repo_container:nth-child(3),
+.repo_wrapper .repo_container:nth-child(4) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.repo_wrapper .repo_container:nth-child(3n + 1) {
+  border-right: none;
+}
+
 .repo_wrapper .repo_container:hover {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 0 4px 0 rgba(0, 0, 0, 0.08);
-  -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 0 4px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);
 }
 
 .repo_container .repo_desc,
@@ -47,12 +60,8 @@
 }
 
 .repo_container .repo_title {
-  border-bottom: 1px solid #f0f0f0;
   display: block;
-}
-
-.repo_container .repo_desc {
-  border-bottom: 1px solid #f0f0f0;
+  color: #666;
 }
 
 .repo_container .repo_info .repo_stars {
