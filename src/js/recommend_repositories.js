@@ -42,7 +42,7 @@ class RecommendRepo {
     const repoTemplates = repos.map((repo) => {
       return this._repoTemplate(repo);
     });
-    return `<div class="repo_wrapper"><div class="repo_wrapper_title">Similiar Repos</div>${repoTemplates.join('')}</div>`;
+    return `<div class="repo_wrapper"><div class="repo_wrapper_title">Recommend Repos <span class="repo_wrapper_language">${this.repoLanguage}</span></div>${repoTemplates.join('')}</div>`;
   }
 
   _repoTemplate(repo) {
