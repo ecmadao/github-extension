@@ -7,12 +7,16 @@ const HEADERS = {
   'User-Agent': 'github-extension'
 };
 
+export const originalURL = () => {
+  return window.location.href;
+};
+
 export const matchUrl = (url) => {
   return url.match(/\/pull\//) || url.match(/\/compare\//);
 };
 
 export const activePage = (url) => {
-  var href = window.location.href;
+  var href = originalURL();
   var re = new RegExp(url + "$");
   var result = re.exec(href);
   return result && result.length === 1;
