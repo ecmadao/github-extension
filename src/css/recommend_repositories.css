@@ -79,3 +79,19 @@
 .repo_container .repo_info a:hover {
   color: #1976D2;
 }
+
+/* github_repo_size */
+.github_repo_size {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.github_repo_size svg {
+  width: 16px;
+  height: 16px;
+  fill: #999;
+  color: #999;
+  vertical-align: text-bottom;
+  display: inline-block;
+}

@@ -7,6 +7,23 @@ const HEADERS = {
   'User-Agent': 'github-extension'
 };
 
+const KB2MB = 0.0009765625;
+const KB2BYTES = 1024;
+
+export const formatRepoSize = (repoSize) => {
+  return parseInt(repoSize).toFixed(2);
+}
+
+export const formatRepoSizeAndUnit = (repoSize) => {
+  if (repoSize < KB2BYTES) {
+    return [formatRepoSize(repoSize * KB2BYTES), 'Bytes'];
+  }
+  if (repoSize >= 1 / KB2MB) {
+    return [formatRepoSize(repoSize * KB2MB), 'MB'];
+  }
+  return [repoSize, 'KB'];
+};
+
 export const originalURL = () => {
   return window.location.href;
 };
