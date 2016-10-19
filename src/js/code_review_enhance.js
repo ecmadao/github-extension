@@ -22,14 +22,12 @@ class ActionButton {
     if (this.canInitial) {
       var observer = new window.WebKitMutationObserver((mutations) => {
         if (originalURL() !== this.url) {
-          console.log('before change');
-          console.log(this.url);
           this.url = originalURL();
           this._handleUrlChange();
         }
       });
       try {
-        observer.observe($('.pull-request-tab-content')[0], {
+        observer.observe($('#js-repo-pjax-container')[0], {
           subtree: true,
           characterData: true,
           childList: true
@@ -40,6 +38,7 @@ class ActionButton {
 
   _addScrollButton() {
     const scrollButton = $(this._actionButtonTemplate());
+    this.topBarButtons = scrollButton.find('.code_review_tab');
     $('body').append(scrollButton);
     this._bindButtonAction();
   }
@@ -54,8 +53,12 @@ class ActionButton {
   }
 
   _handleUrlChange() {
-    console.log('url is changed');
-    console.log(this.url);
+    this.topBarButtons.each((i, button) => {
+      const href = $(button).attr('href');
+      if (activePage(href)) {
+        $(button).addClass('active').siblings().removeClass('active');
+      }
+    });
   }
 
   _listenWindowScroll() {
