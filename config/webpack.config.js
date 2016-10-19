@@ -37,10 +37,7 @@ module.exports = {
         query: {
           presets: ["es2015"]
         }
-      },
-      // image & font
-      {test: /\.(woff|woff2|eot|ttf|otf)$/i, loader: "url-loader?limit=8192&name=[name].[ext]"},
-      {test: /\.(jpe?g|png|gif|svg)$/i, loader: "url-loader?limit=8192&name=[name].[ext]"}
+      }
     ],
   },
   resolve: {
