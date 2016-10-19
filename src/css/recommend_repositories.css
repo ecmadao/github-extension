@@ -6,17 +6,22 @@
 }
 
 .repo_wrapper .repo_wrapper_title {
-  padding-left: 1.7%;
+  padding: 0 1.7%;
   font-size: 16px;
   height: 35px;
   line-height: 35px;
   border-bottom: 1px solid #ddd;
 }
 
+.repo_wrapper .repo_wrapper_language {
+  float: right;
+  color: rgb(158, 158, 158);
+}
+
 .repo_wrapper .repo_container {
   display: inline-block;
-  width: 33%;
-  border-right: 0.5px solid #f0f0f0;
+  width: 33.3%;
+  border-right: 1px solid #f0f0f0;
   border-radius: 2px;
   transition: all 400ms;
   -webkit-transition: all 400ms;
