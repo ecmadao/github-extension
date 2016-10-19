@@ -7,7 +7,7 @@ import RecommendRepo from '../js/recommend_repositories';
 initialPullRequest();
 
 const actionButton = new ActionButton();
-actionButton.initial();
+actionButton.initial().listenUrlChange();
 
 const recommendRepo = new RecommendRepo();
 recommendRepo.initial();
