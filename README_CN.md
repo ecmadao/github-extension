@@ -52,7 +52,15 @@
 
 ## 本地玩起来
 
-- 克隆这个仓库
+- clone & build
+
+```bash
+$ git clone https://github.com/ecmadao/github-extension.git
+$ cd github-extension
+$ npm i
+$ npm run build
+```
+
 - 打开 chrome，进入 [chrome://extensions](chrome://extensions/) 页面
 - 打开 “开发者模式”
 - 点击 "加载未封装的扩展程序"，然后加载你刚刚下载的文件夹内的 "build" 文件夹

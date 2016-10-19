@@ -48,7 +48,15 @@ It will search and get six most stared repos by repository name and language.
 
 ## Playground
 
-- clone this repository
+- clone & build
+
+```bash
+$ git clone https://github.com/ecmadao/github-extension.git
+$ cd github-extension
+$ npm i
+$ npm run build
+```
+
 - locate your chrome to [chrome://extensions](chrome://extensions/)
 - open "developer mode"
 - click "load unpacked", then load "build" folder in this repository
