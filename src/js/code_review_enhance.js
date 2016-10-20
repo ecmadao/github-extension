@@ -100,19 +100,21 @@ class ActionButton {
   }
 
   _actionButtonTemplate() {
-    return "<div class='git_action_button_wrapper'>" +
-    this.scrollButtonTemplate +
-    "</div>";
+    return `<div class='git_action_button_wrapper'>
+      ${this.scrollButtonTemplate}
+    </div>`;
   }
 
   get scrollButtonTemplate() {
-    return "<div class='git_action_button github_scroll_top'>" +
-    "<div class='scroll_top_icon'></div>" +
-    "</div>";
+    return `<div class='git_action_button github_scroll_top'>
+      <div class='scroll_top_icon'></div>
+    </div>`;
   }
 
   get topBarButtonTemplate() {
-    return "<div class='code_review_tab_wrapper'>" + this.topbarButton + "</div>";
+    return `<div class='code_review_tab_wrapper'>
+      ${this.topbarButton}
+    </div>`;
   }
 
   get topbarButton() {
@@ -136,10 +138,13 @@ class ActionButton {
   }
 
   _getTopBarTemplate(tabObj) {
-    const actionButtonClass = activePage(tabObj.href) ? 'git_action_button code_review_tab active' : 'git_action_button code_review_tab';
-    return "<a href='" + tabObj.href + "' class='" + actionButtonClass + "'>" +
-    "<div class='code_review_icon'>" + tabObj.svg + "</div>" +
-    "</a>";
+    const actionButtonClass = `git_action_button code_review_tab ${activePage(tabObj.href) ? 'active' : ''}`;
+
+    return `<a href='${tabObj.href}' class='${actionButtonClass}'>
+      <div class='code_review_icon'>
+        ${tabObj.svg}
+      </div>
+    </a>`;
   }
 }
 

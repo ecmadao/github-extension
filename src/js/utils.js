@@ -1,8 +1,9 @@
 import {polyfill} from 'es6-promise';
 polyfill();
 
-const REPO_INFO = "https://api.github.com/repos/";
-const SEARCH = "https://api.github.com/search/repositories?o=desc&s=stars&type=Repositories&utf8=✓";
+const API = "https://api.github.com";
+const REPO_INFO = `${API}/repos/`;
+const SEARCH = `${API}/search/repositories?o=desc&s=stars&type=Repositories&utf8=✓`;
 const HEADERS = {
   'User-Agent': 'github-extension'
 };

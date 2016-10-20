@@ -29,7 +29,6 @@ class RecommendRepo {
         return;
       }
       this.url = currentUrl;
-      console.log(reposUrl());
       this.repoUrl = reposUrl();
       this.initial();
       return;
