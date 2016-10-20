@@ -15,7 +15,7 @@ export const formatRepoSize = (repoSize) => {
 }
 
 export const formatRepoSizeAndUnit = (repoSize) => {
-  if (repoSize < KB2BYTES) {
+  if (repoSize < 1) {
     return [formatRepoSize(repoSize * KB2BYTES), 'Bytes'];
   }
   if (repoSize >= 1 / KB2MB) {
