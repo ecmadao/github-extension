@@ -9,7 +9,7 @@ class ActionButton {
     this.url = originalURL();
     this.canInitialReviewButton = matchUrl(this.url);
     this.actionButton = null;
-    this.reviewButtons = null;
+    this.reviewButton = null;
   }
 
   initial() {
@@ -21,11 +21,21 @@ class ActionButton {
   listenUrlChange() {
     var observer = new window.WebKitMutationObserver((mutations) => {
       const currentUrl = originalURL();
+      if (currentUrl === this.url) {
+        return;
+      }
       const matchReviewUrl = matchUrl(currentUrl);
-      if (matchReviewUrl && !this.reviewButtons && !this.canInitialReviewButton) {
+      if (!matchReviewUrl && this.canInitialReviewButton) {
+        this.url = currentUrl;
+        this._removeReviewButton();
+        return;
+      }
+      if (matchReviewUrl && !this.reviewButton && !this.canInitialReviewButton) {
         this.canInitialReviewButton = matchReviewUrl;
         this._initialReviewButton();
-      } else if (currentUrl !== this.url && matchReviewUrl) {
+        return;
+      }
+      if (matchReviewUrl) {
         this.url = currentUrl;
         this._handleUrlChange();
       }
@@ -37,6 +47,12 @@ class ActionButton {
         childList: true
       });
     } catch (e) {}
+  }
+
+  _removeReviewButton() {
+    this.canInitialReviewButton = false;
+    this.reviewButton && this.reviewButton.remove();
+    this.reviewButton = null;
   }
 
   _addScrollButton() {
@@ -58,7 +74,7 @@ class ActionButton {
   }
 
   _handleUrlChange() {
-    this.reviewButtons.each((i, button) => {
+    this.reviewButton.find('.code_review_tab').each((i, button) => {
       const href = $(button).attr('href');
       if (activePage(href)) {
         $(button).addClass('active').siblings().removeClass('active');
@@ -80,9 +96,8 @@ class ActionButton {
   }
 
   _initialReviewButton() {
-    const $reviewButtonTemplate = $(this.topBarButtonTemplate);
-    this.reviewButtons = $reviewButtonTemplate.find('.code_review_tab');
-    this.actionButton.append($reviewButtonTemplate);
+    this.reviewButton = $(this.topBarButtonTemplate);
+    this.actionButton.append(this.reviewButton);
   }
 
   _actionButtonTemplate() {
