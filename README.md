@@ -65,6 +65,7 @@ $ npm run build
 
 - [x] show similar repositories in a repository main page
 - [x] show current page in action button when code review
+- [x] show repository size
 
 ## Author
 

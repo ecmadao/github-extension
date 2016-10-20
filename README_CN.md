@@ -62,13 +62,14 @@ $ npm run build
 ```
 
 - 打开 chrome，进入 [chrome://extensions](chrome://extensions/) 页面
-- 打开 “开发者模式”
+- 打开 "开发者模式"
 - 点击 "加载未封装的扩展程序"，然后加载你刚刚下载的文件夹内的 "build" 文件夹
 
 ## ToDo
 
 - [x] 在各仓库的主页面展现和它类似的开源仓库
 - [x] code review 页面的 action button 展现当前的页面
+- [x] 展示仓库大小
 - 更多功能还在思考中。。
 
 ## author
