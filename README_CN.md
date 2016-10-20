@@ -58,6 +58,8 @@
 
 [![ChromeWebStore](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_340x96.png)](https://chrome.google.com/webstore/detail/dimfhhiifdbdcjaoijgldompniobhcbd)
 
+可在 [chrome商店](https://chrome.google.com/webstore/detail/dimfhhiifdbdcjaoijgldompniobhcbd)下载正式发布版
+
 ## 本地玩起来
 
 - clone & build
@@ -69,7 +71,7 @@ $ npm i
 $ npm run build
 ```
 
-- 打开 chrome，进入 [chrome 扩展程序页面](chrome://extensions/) 页面
+- 打开 chrome，进入 chrome://extensions/
 - 打开 "开发者模式"
 - 点击 "加载未封装的扩展程序"，然后加载你刚刚下载的文件夹内的 "build" 文件夹
 

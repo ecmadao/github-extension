@@ -54,6 +54,8 @@ It will search and get six most stared repos by repository name and language.
 
 [![ChromeWebStore](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_340x96.png)](https://chrome.google.com/webstore/detail/dimfhhiifdbdcjaoijgldompniobhcbd)
 
+You can download released version in [chrome extension store](https://chrome.google.com/webstore/detail/dimfhhiifdbdcjaoijgldompniobhcbd)
+
 ## Playground
 
 - clone & build
@@ -65,7 +67,7 @@ $ npm i
 $ npm run build
 ```
 
-- locate your chrome to [chrome extensions page](chrome://extensions/)
+- locate your chrome to chrome://extensions/
 - open "developer mode"
 - click "load unpacked", then load "build" folder in this repository
 
