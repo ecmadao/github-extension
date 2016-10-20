@@ -9,7 +9,7 @@ class ActionButton {
     this.url = originalURL();
     this.canInitialReviewButton = matchUrl(this.url);
     this.actionButton = null;
-    this.reviewButtons = null;
+    this.reviewButton = null;
   }
 
   initial() {
@@ -19,14 +19,23 @@ class ActionButton {
   }
 
   listenUrlChange() {
-    var observer = new window.WebKitMutationObserver((mutations) => {
+    const observer = new window.WebKitMutationObserver((mutations) => {
       const currentUrl = originalURL();
+      if (currentUrl === this.url) {
+        return;
+      }
+      this.url = currentUrl;
       const matchReviewUrl = matchUrl(currentUrl);
-      if (matchReviewUrl && !this.reviewButtons && !this.canInitialReviewButton) {
+      if (!matchReviewUrl && this.canInitialReviewButton) {
+        this._removeReviewButton();
+        return;
+      }
+      if (matchReviewUrl && !this.reviewButton && !this.canInitialReviewButton) {
         this.canInitialReviewButton = matchReviewUrl;
         this._initialReviewButton();
-      } else if (currentUrl !== this.url && matchReviewUrl) {
-        this.url = currentUrl;
+        return;
+      }
+      if (matchReviewUrl) {
         this._handleUrlChange();
       }
     });
@@ -37,6 +46,12 @@ class ActionButton {
         childList: true
       });
     } catch (e) {}
+  }
+
+  _removeReviewButton() {
+    this.canInitialReviewButton = false;
+    this.reviewButton && this.reviewButton.remove();
+    this.reviewButton = null;
   }
 
   _addScrollButton() {
@@ -58,7 +73,7 @@ class ActionButton {
   }
 
   _handleUrlChange() {
-    this.reviewButtons.each((i, button) => {
+    this.reviewButton.find('.code_review_tab').each((i, button) => {
       const href = $(button).attr('href');
       if (activePage(href)) {
         $(button).addClass('active').siblings().removeClass('active');
@@ -80,25 +95,26 @@ class ActionButton {
   }
 
   _initialReviewButton() {
-    const $reviewButtonTemplate = $(this.topBarButtonTemplate);
-    this.reviewButtons = $reviewButtonTemplate.find('.code_review_tab');
-    this.actionButton.append($reviewButtonTemplate);
+    this.reviewButton = $(this.topBarButtonTemplate);
+    this.actionButton.append(this.reviewButton);
   }
 
   _actionButtonTemplate() {
-    return "<div class='git_action_button_wrapper'>" +
-    this.scrollButtonTemplate +
-    "</div>";
+    return `<div class='git_action_button_wrapper'>
+      ${this.scrollButtonTemplate}
+    </div>`;
   }
 
   get scrollButtonTemplate() {
-    return "<div class='git_action_button github_scroll_top'>" +
-    "<div class='scroll_top_icon'></div>" +
-    "</div>";
+    return `<div class='git_action_button github_scroll_top'>
+      <div class='scroll_top_icon'></div>
+    </div>`;
   }
 
   get topBarButtonTemplate() {
-    return "<div class='code_review_tab_wrapper'>" + this.topbarButton + "</div>";
+    return `<div class='code_review_tab_wrapper'>
+      ${this.topbarButton}
+    </div>`;
   }
 
   get topbarButton() {
@@ -122,10 +138,13 @@ class ActionButton {
   }
 
   _getTopBarTemplate(tabObj) {
-    const actionButtonClass = activePage(tabObj.href) ? 'git_action_button code_review_tab active' : 'git_action_button code_review_tab';
-    return "<a href='" + tabObj.href + "' class='" + actionButtonClass + "'>" +
-    "<div class='code_review_icon'>" + tabObj.svg + "</div>" +
-    "</a>";
+    const actionButtonClass = `git_action_button code_review_tab ${activePage(tabObj.href) ? 'active' : ''}`;
+
+    return `<a href='${tabObj.href}' class='${actionButtonClass}'>
+      <div class='code_review_icon'>
+        ${tabObj.svg}
+      </div>
+    </a>`;
   }
 }
 

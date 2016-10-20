@@ -10,4 +10,4 @@ const actionButton = new ActionButton();
 actionButton.initial().listenUrlChange();
 
 const recommendRepo = new RecommendRepo();
-recommendRepo.initial();
+recommendRepo.initial().listenUrlChange();

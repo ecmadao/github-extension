@@ -1,8 +1,9 @@
 import {polyfill} from 'es6-promise';
 polyfill();
 
-const REPO_INFO = "https://api.github.com/repos/";
-const SEARCH = "https://api.github.com/search/repositories?o=desc&s=stars&type=Repositories&utf8=✓";
+const API = "https://api.github.com";
+const REPO_INFO = `${API}/repos/`;
+const SEARCH = `${API}/search/repositories?o=desc&s=stars&type=Repositories&utf8=✓`;
 const HEADERS = {
   'User-Agent': 'github-extension'
 };
@@ -22,6 +23,15 @@ export const formatRepoSizeAndUnit = (repoSize) => {
     return [formatRepoSize(repoSize * KB2MB), 'MB'];
   }
   return [repoSize, 'KB'];
+};
+
+export const reposUrl = () => {
+  const hrefs = originalURL().split('/');
+  if (hrefs.length === 5) {
+    return hrefs.slice(-2).join('/');
+  } else {
+    return null;
+  }
 };
 
 export const originalURL = () => {
