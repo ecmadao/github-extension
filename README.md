@@ -46,6 +46,10 @@ It will search and get six most stared repos by repository name and language.
 
 ![similar repos](./readme/similar_repos.png)
 
+### show repos size
+
+![repos size](./readme/repos_size.png)
+
 ## Playground
 
 - clone & build
