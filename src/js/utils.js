@@ -24,6 +24,15 @@ export const formatRepoSizeAndUnit = (repoSize) => {
   return [repoSize, 'KB'];
 };
 
+export const reposUrl = () => {
+  const hrefs = originalURL().split('/');
+  if (hrefs.length === 5) {
+    return hrefs.slice(-2).join('/');
+  } else {
+    return null;
+  }
+};
+
 export const originalURL = () => {
   return window.location.href;
 };

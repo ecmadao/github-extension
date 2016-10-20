@@ -1,4 +1,6 @@
 import {
+  reposUrl,
+  originalURL,
   fetchRepoInfo,
   fetchSearchResult,
   formatRepoSizeAndUnit
@@ -6,12 +8,8 @@ import {
 
 class RecommendRepo {
   constructor() {
-    const hrefs = window.location.href.split('/');
-    if (hrefs.length === 5) {
-      this.repoUrl = hrefs.slice(-2).join('/');
-    } else {
-      this.repoUrl = null;
-    }
+    this.repoUrl = reposUrl();
+    this.url = originalURL();
     this.repoLanguage = null;
     this.repoName = null;
     this.repoSize = null;
@@ -21,6 +19,28 @@ class RecommendRepo {
     if (this.repoUrl) {
       this._getRepoInfo();
     }
+    return this;
+  }
+
+  listenUrlChange() {
+    const observer = new window.WebKitMutationObserver((mutations) => {
+      const currentUrl = originalURL();
+      if (currentUrl === this.url) {
+        return;
+      }
+      this.url = currentUrl;
+      console.log(reposUrl());
+      this.repoUrl = reposUrl();
+      this.initial();
+      return;
+    });
+    try {
+      observer.observe($('#js-repo-pjax-container')[0], {
+        subtree: true,
+        characterData: true,
+        childList: true
+      });
+    } catch (e) {}
   }
 
   _getRepoInfo() {
@@ -58,7 +78,8 @@ class RecommendRepo {
 
   _addRecommendRepos(repos) {
     const $repoWrapper = $(this._reposWrapper(repos));
-    $('.repository-meta.js-details-container').after($repoWrapper);
+    const $detailsContainer = $('.repository-meta.js-details-container');
+    $detailsContainer.length && $detailsContainer.after($repoWrapper);
   }
 
   _reposWrapper(repos) {

@@ -19,14 +19,14 @@ class ActionButton {
   }
 
   listenUrlChange() {
-    var observer = new window.WebKitMutationObserver((mutations) => {
+    const observer = new window.WebKitMutationObserver((mutations) => {
       const currentUrl = originalURL();
       if (currentUrl === this.url) {
         return;
       }
+      this.url = currentUrl;
       const matchReviewUrl = matchUrl(currentUrl);
       if (!matchReviewUrl && this.canInitialReviewButton) {
-        this.url = currentUrl;
         this._removeReviewButton();
         return;
       }
@@ -36,7 +36,6 @@ class ActionButton {
         return;
       }
       if (matchReviewUrl) {
-        this.url = currentUrl;
         this._handleUrlChange();
       }
     });
