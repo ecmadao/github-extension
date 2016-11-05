@@ -2,7 +2,7 @@
 
 > A chrome extension for better github experience.
 
-[中文版介绍](./README_CN.md)
+README：[中文](./README_CN.md)
 
 ## Feature
 

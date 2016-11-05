@@ -2,6 +2,8 @@
 
 > 一个用于提升`github pull request & code review`的 chrome 插件
 
+README：[English](./README.md)
+
 ## 特性
 
 ### 关于创建`pull request`
